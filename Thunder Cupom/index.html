@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Formulário</title>
+    <style>
+        /* Estilos adicionais para o pop-up */
+        .popup {
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Resgate seu cupom!</h2>
+        <form action="https://api.staticforms.xyz/submit" method="post" id="form">
+            <label>Nome</label>
+            <input type="text" name="name" placeholder="Digite seu nome" autocomplete="off" required>
+            <label>Telefone</label>
+            <input type="text" name="phone" placeholder="Telefone" autocomplete="off" required>
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Digite seu email" autocomplete="off" required>
+            <label>Cupom</label>
+            <textarea name="message" cols="30" rows="10" placeholder="Digite seu cupom aqui!"></textarea>
+            <button type="submit" onclick="showPopup()">Enviar</button>
+            <input type="hidden" name="accessKey" value="85a29c69-7ab5-470a-8b0a-81ebc60ee9e5">
+            <input type="hidden" name="redirectTo" value="obrigado.html">
+        </form>
+        <img src="logo.png" alt="Logo">
+    </section>
+
+    <!-- Pop-up -->
+    <div class="popup" id="popup" style="display: none;">
+        <div class="popup-content">
+            <h3>Cupom resgatado!</h3>
+            <p>O seu cupom foi resgatado com sucesso.</p>
+        </div>
+    </div>
+
+    <script>
+        // Função para exibir o pop-up
+        function showPopup() {
+            document.getElementById("popup").style.display = "flex";
+        }
+    </script>
+</body>
+</html>
